@@ -4,13 +4,13 @@ using MAUI03.Models;
 
 namespace MAUI03;
 
-[QueryProperty(nameof(Pet), "Pet")]
+[QueryProperty(nameof(ThePet), "Pet")]
 public partial class PetDetailsPage : ContentPage
 {
 
 	private Pet pet;
 
-	public Pet Pet
+	public Pet ThePet
 	{
 		get { return pet; }
 		set { pet = value; OnPropertyChanged(); }

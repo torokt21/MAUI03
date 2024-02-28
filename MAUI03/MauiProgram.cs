@@ -46,7 +46,7 @@ using Microsoft.Extensions.Logging;
                     { "Pet", SelectedPet }
                 };
 
- *    A PetDetailsPage-be attribútum
+ *    A PetDetailsPage-be attribútum EZT VIEWMODELRE IS LEHET ALKALMAZNI
  *      [QueryProperty(nameof(Pet), "Pet")]
  *                                     ^ Az a név amivel átadtuk neki
  *                                     

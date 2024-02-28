@@ -4,9 +4,13 @@
              x:Class="MAUI03.NewPetPage"
              Title="NewPetPage">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Label Text="Name" />
+        <Entry Text="{Binding NewPet.Name}"/>
+        <Label Text="Species" />
+        <Entry Text="{Binding NewPet.Species}"/>
+        <Label Text="Date of birth" />
+        <DatePicker Date="{Binding NewPet.BirthDate}"/>
+
+        <Button Text="Save" Clicked="Button_Clicked"/>
     </VerticalStackLayout>
 </ContentPage>

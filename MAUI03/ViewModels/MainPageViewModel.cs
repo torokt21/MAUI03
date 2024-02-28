@@ -11,10 +11,17 @@ using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace MAUI03.ViewModels
 {
+    [QueryProperty(nameof(NewPet), "NewPet")]
     public partial class MainPageViewModel : ObservableObject
     {
         public ObservableCollection<Pet> Pets { get; set; }
 
+        public Pet NewPet {  
+            set
+            {
+                this.Pets.Add(value);
+            }
+        }
         [ObservableProperty]
         Pet selectedPet;
 
@@ -61,7 +68,7 @@ namespace MAUI03.ViewModels
         [RelayCommand]
         public async Task NewPetAsync()
         {
-
+            await Shell.Current.GoToAsync("NewPet");
         }
     }
 }
