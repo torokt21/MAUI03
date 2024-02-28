@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:MAUI03.ViewModels"
+             xmlns:model="clr-namespace:MAUI03.Models"
+             x:DataType="vm:MainPageViewModel"
+             x:Class="MAUI03.MainPage">
+
+    <Grid ColumnDefinitions="*" RowDefinitions="*,Auto">
+        <ScrollView>
+        <CollectionView
+            SelectedItem="{Binding SelectedPet}"
+            SelectionMode="Single"
+            ItemsSource="{Binding Pets}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Pet">
+                        <Frame>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup Name="CommonStates">
+                                    <VisualState Name="Normal"></VisualState>
+                                    <VisualState Name="Selected">
+                                        <VisualState.Setters>
+                                            <Setter Property="BackgroundColor" Value="LightSkyBlue"></Setter>
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <VerticalStackLayout VerticalOptions="Center">
+                                <Label FontSize="Medium" FontAttributes="Bold" Text="{Binding Name}"></Label>
+                                <Label FontSize="Small" Text="{Binding Species}"></Label>
+                            </VerticalStackLayout>
+                        </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        </ScrollView>
+        <VerticalStackLayout Grid.Row="1">
+        <Button Text="Details"
+                Margin="5"
+                Command="{Binding DetailsCommand}"></Button>
+        <Button Text="New"
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="5"
+                Command="{Binding NewPetCommand}"></Button>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>
